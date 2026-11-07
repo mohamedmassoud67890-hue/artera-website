@@ -1,0 +1,102 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --charcoal: #252923;
+  --beige: #E9E5DC;
+  --sand: #A99B83;
+  --white: #FFFFFF;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  @apply bg-beige text-charcoal antialiased;
+  font-feature-settings: "rlig" 1, "calt" 1;
+}
+
+/* Focus styles for accessibility */
+*:focus-visible {
+  @apply outline-2 outline-offset-2 outline-sand;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #E9E5DC;
+}
+::-webkit-scrollbar-thumb {
+  background: #A99B83;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #252923;
+}
+
+/* Utility classes */
+@layer components {
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2 rounded-xl bg-charcoal px-6 py-3 text-sm font-semibold text-white transition-all duration-200 hover:bg-charcoal/90 hover:shadow-soft focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sand focus-visible:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed;
+  }
+
+  .btn-secondary {
+    @apply inline-flex items-center justify-center gap-2 rounded-xl border-2 border-charcoal bg-transparent px-6 py-3 text-sm font-semibold text-charcoal transition-all duration-200 hover:bg-charcoal hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sand focus-visible:ring-offset-2;
+  }
+
+  .btn-whatsapp {
+    @apply inline-flex items-center justify-center gap-2 rounded-xl bg-[#25D366] px-6 py-3 text-sm font-semibold text-white transition-all duration-200 hover:bg-[#20BD5A] hover:shadow-soft focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#25D366] focus-visible:ring-offset-2;
+  }
+
+  .section-padding {
+    @apply px-4 py-16 sm:px-6 lg:px-8 lg:py-24;
+  }
+
+  .container-custom {
+    @apply mx-auto max-w-7xl;
+  }
+
+  .heading-1 {
+    @apply text-3xl font-bold tracking-tight text-charcoal sm:text-4xl lg:text-5xl;
+  }
+
+  .heading-2 {
+    @apply text-2xl font-bold tracking-tight text-charcoal sm:text-3xl;
+  }
+
+  .heading-3 {
+    @apply text-xl font-semibold text-charcoal;
+  }
+
+  .card {
+    @apply rounded-2xl bg-white p-6 shadow-card transition-shadow duration-200 hover:shadow-soft;
+  }
+
+  .input-field {
+    @apply w-full rounded-xl border border-sand/40 bg-white px-4 py-3 text-charcoal placeholder:text-charcoal/50 focus:border-sand focus:outline-none focus:ring-2 focus:ring-sand/30 transition-colors;
+  }
+
+  .label {
+    @apply mb-1.5 block text-sm font-medium text-charcoal;
+  }
+}
+
+/* Subtle animations */
+@keyframes fade-in-up {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in-up {
+  animation: fade-in-up 0.5s ease-out forwards;
+}
